@@ -3,7 +3,7 @@
 }
 
 td, th {
-    padding: 10px;
+    padding: 20px;
 }
 
 th {
@@ -24,7 +24,7 @@ tr:nth-child(odd) {
 }
 
 table.job-listing {
-    margin: 30px auto;
+    margin: 30px auto-centeredTable;
     border: 1px solid #e4e4e4;
     width: 80%;
 }
@@ -34,13 +34,13 @@ table.job-listing td:first-child {
 }
 
 table.job-listing td:last-child {
-    width: 80%;
+    width: 110%;
 }
 
 label {
-    margin-right: 15px;
+    margin-right: 20px;
 }
 
 .centered {
-    text-align: center;
+    text-align: center-left;
 }
