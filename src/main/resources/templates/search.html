@@ -21,7 +21,7 @@
                         th:id="${column.key}"
                         th:value="${column.key}"
                         th:checked="${column.key == 'all'}">
-                        th:checked="${column.key.equals(radio)}"/>
+                        th:checked="${column.key == (search)}"/>
                 <label th:for="${column.key}" th:text="${column.value}"></label>
             </span>
 
