@@ -14,7 +14,7 @@ import static org.launchcode.javawebdevtechjobsmvc.controllers.ListController.co
  * Created by LaunchCode
  */
 @Controller
-@RequestMapping("search")
+@RequestMapping("/search")
 public class SearchController {
 
     @RequestMapping(value = "")
@@ -28,20 +28,20 @@ public class SearchController {
     @PostMapping("/results")
         public String displaySearchResults(Model model,@RequestParam String searchType,@RequestParam String searchTerm ) {
         ArrayList<Job> jobs;
-        String radio = searchType;
+        String radio = "searchType";
 
         if(searchType.toLowerCase().equals("all") && searchTerm.toLowerCase().equals("all") || searchTerm.toLowerCase().equals("")) {
             jobs = JobData.findAll();
             model.addAttribute("title"," searchType "+" searchTerm");
         } else{
-            jobs = JobData.findByColumnAndValue(searchType,searchTerm);
-            model.addAttribute("title"," searchType "+" searchTerm");
+            jobs = JobData.findByColumnAndValue("searchType","searchTerm");
+            model.addAttribute("title"," + searchType " + "searchTerm");
         }
         model.addAttribute("radio",radio);
         model.addAttribute("columns",columnChoices);
         model.addAttribute("jobs", jobs);
 
-        return "search";
+        return "searchType";
 
     }
 }
