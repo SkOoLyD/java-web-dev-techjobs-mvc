@@ -10,36 +10,53 @@
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
-    <form th:action="@{/search/results}" method = "post">
+    <form th:action="@{/search/results}" method="post">
         <h2>Search by:</h2>
 
         <p>
-            <span th:each="column : ${columns}">
-                <input
-                        type="radio"
-                        name="searchType"
-                        th:id="${column.key}"
-                        th:value="${column.key}"
-                        th:checked="${column.key == 'all'}">
-                        th:checked="${column.key == (search)}"/>
-                <label th:for="${column.key}" th:text="${column.value}"></label>
-            </span>
+        <span th:each="column : ${columns}">
+            <input
+                    type = "radio"
+                    name ="searchType"
+                    th:id="${column.key}"
+                    th:value="${column.key}"
+                    th:checked="${column.key == 'all'}"/>
+            <label th:for="${column.key}" th:text="${column.value}"></label>
+        </span>
 
-        </p>
-
-        <p>
-            <label for="searchTerm">Keyword:</label>
-            <input type="text" name="searchTerm" id="searchTerm" />
-        </p>
-
-        <input type="submit" value="Search" />
+</p>
+<p>
+    <label for = "searchTerm">Keyword:</label>
+    <input type="text" name="searchTerm" id="searchTerm"/>
+</p>
+    <input type="submit" value="search"/>
     </form>
 
-    <hr />
-
+    <hr/>
     <!-- TODO #4 - Loop over the search results to display all job fields. -->
+<table class="job-listing" th:each="job: ${jobs}">
 
-</div>
+    <tr>
+        <td th:text="'ID:' + ${job.id}">id</td>
+    </tr>
+    <tr>
+        <td th:text="'Name:' + ${job.name}">name</td>
+    </tr>
+    <tr>
+        <td th:text="'Employer:' +${job.employer}">employer</td>
+    </tr>
+    <tr>
+        <td th:text="'Location:' + ${job.location}">location</td>
+    </tr>
+    <tr>
+        <td th:text="'PositionType: ' + ${job.positionType}">position</td>
+    </tr>
+    <tr>
+        <td th:text="'Skill:' + ${job.coreCompetency}">skill</td>
+    </tr>
+</table>
+
+    </div>
 
 </body>
 </html>
